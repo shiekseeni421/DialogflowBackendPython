@@ -43,7 +43,7 @@ def detect_intent(session_client, project_id, session_id, query, language_code, 
 @app.route('/chatbot', methods=['POST'])
 def handle_vikaspedia():
     key_filename = os.path.join(os.path.dirname(
-        __file__), './vikaspediavideostv-a30e867aea7c.json')
+        __file__), 'file.json')
     session_client = create_session_client(key_filename)
     data = request.json
     query = data.get('query')
@@ -51,7 +51,7 @@ def handle_vikaspedia():
     language_code = data.get('languageCode')
     user_name = data.get('userName')
     try:
-        project_id = "vikaspediavideostv"
+        project_id = "projectid"
         result = detect_intent(session_client, project_id,
                                session_id, query, language_code, user_name)
         fulfillment_messages_dict = []
